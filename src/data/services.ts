@@ -19,23 +19,12 @@ export type Service = {
     title: string;
     description: string;
   };
-  pickup: [
-  {
-    title: "Személyes átvétel",
-    description:
-      "Rendelésedet személyesen átveheted nyomdánkban, előre egyeztetett időpontban.",
-  },
-  {
-    title: "Házhozszállítás",
-    description:
-      "Budapesten és környékén saját futárral szállítjuk ki rendelésedet.",
-  },
-  {
-    title: "Csomagküldés",
-    description:
-      "Országosan, megbízható partnereinkkel küldjük el a kész megrendelést.",
-  },
-],
+
+  pickup?: {
+    title: string;
+    description: string;
+  }[];
+ 
 };
 
 export const services: Service[] = [
@@ -72,6 +61,28 @@ export const services: Service[] = [
       "Újrahasznosított papírok",
     ],
   },
+  ordering: {
+    title: "Rendelés leadása",
+    description:
+      "Rendelésedet online vagy személyesen adhatod le. A fájlok feltöltése után kollégáink ellenőrzik az anyagot, és visszajelzünk a továbbiakról.",
+  },
+  pickup: [
+    {
+      title: "Személyes átvétel",
+      description:
+        "Rendelésedet személyesen átveheted nyomdánkban, előre egyeztetett időpontban.",
+    },
+    {
+      title: "Házhozszállítás",
+      description:
+        "Budapesten és környékén saját futárral szállítjuk ki rendelésedet.",
+    },
+    {
+      title: "Csomagküldés",
+      description:
+        "Országosan, megbízható partnereinkkel küldjük el a kész megrendelést.",
+    },
+  ],
   },
   {
     slug: "fuzetek-konyvek",

@@ -183,6 +183,29 @@ function ServicePage() {
     </Link>
   </div>
 </section>
+{/* Átvétel */}
+<section className="mx-auto max-w-7xl border-b border-black/10 px-6 py-12">
+  <h2 className="text-2xl font-bold tracking-tight">
+    Átvétel
+  </h2>
+
+  <div className="mt-8 grid gap-8 md:grid-cols-3">
+    {service.pickup?.map((option) => (
+      <div
+        key={option.title}
+        className="border-t border-black/10 pt-6"
+      >
+        <h3 className="text-lg font-semibold">
+          {option.title}
+        </h3>
+
+        <p className="mt-3 text-sm leading-7 text-black/70">
+          {option.description}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>
     </main>
   );
 }
