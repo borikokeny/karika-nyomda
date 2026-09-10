@@ -75,7 +75,7 @@ function ServicePage() {
       </section>
       {/* Információs navigáció */}
 <div className="border-y border-black/10">
-  <div className="mx-auto grid max-w-7xl grid-cols-6 px-6">
+  <div className="mx-auto grid max-w-7xl grid-cols-2 px-6 md:grid-cols-6">
   <a
       href="#arak"
       className="border-r border-black/10 px-4 py-6 text-center text-sm font-semibold transition-opacity hover:opacity-60"
@@ -118,7 +118,7 @@ function ServicePage() {
   {/* Árak */}
 <section
   id="arak"
-  className="mx-auto max-w-7xl border-b border-black/10 px-4 py-12 scroll-mt-20"
+  className="scroll-mt-20 border-b border-black/10 p-8 md:border-r md:py-12"
 >
   <h2 className="text-2xl font-bold tracking-tight">
     ÁRAK
@@ -129,7 +129,7 @@ function ServicePage() {
   </p>
 
   <div className="mt-6 overflow-x-auto">
-    <table className="w-full min-w-[400px] border-collapse border border-black/10 text-sm">
+    <table className="w-full border-collapse border border-black/10 text-sm">
       <thead>
         <tr className="bg-black/[0.03]">
           <th className="border border-black/10 px-5 py-4 text-center font-semibold">
@@ -238,7 +238,7 @@ function ServicePage() {
   {/* Papírfajták */}
   <div
     id="papirfajtak"
-    className="border-b border-black/10 p-8 md:py-12"
+    className="border-b border-black/10 md:border-r p-8 md:py-12"
   >
     <h2 className="text-2xl font-bold tracking-tight">
       PAPÍRFAJTÁK
@@ -440,7 +440,7 @@ function ServicePage() {
       <img
         src="/images/Vagojelek.png"
         alt="Útmutató a kifutó, vágott méret és biztonsági zóna használatához"
-        className="h-auto w-full"
+        className="h-auto w-full object-contain"
       />
     </div>
 
@@ -511,6 +511,47 @@ function ServicePage() {
     </div>
   </div>
 </section> */}
+{/* Kapcsolatfelvétel */}
+<section className="mx-auto max-w-7xl px-6 py-16">
+  <div className="flex flex-col items-center gap-8 rounded-3xl border border-black/10 bg-black/[0.03] px-8 py-10 text-center md:flex-row md:text-left">
+
+    {/* Ikon */}
+    <div className="shrink-0">
+      <div className="flex h-20 w-20 items-center justify-center rounded-full">
+          
+  <img
+    src="/images/Bubles.png"
+    alt="Bubles"
+    className="h-20 w-20 shrink-0 object-contain"
+  />
+        {/* <span className="text-4xl" aria-hidden="true">
+          💬
+        </span> */}
+      </div>
+    </div>
+
+    {/* Szöveg */}
+    <div className="flex-1">
+      <h2 className="text-2xl font-bold tracking-tight">
+        Kérdésed van? Segítünk!
+      </h2>
+
+      <p className="mt-3 text-sm leading-7 text-black/70">
+        Vedd fel velünk a kapcsolatot, szívesen válaszolunk minden kérdésedre.
+      </p>
+    </div>
+
+    {/* Gomb */}
+    <Link
+      to="/kapcsolat"
+      className="inline-flex shrink-0 items-center gap-2 bg-black px-6 py-4 text-sm font-semibold uppercase tracking-wide text-white transition-opacity hover:opacity-80"
+    >
+      Kapcsolatfelvétel
+      <span aria-hidden="true">→</span>
+    </Link>
+
+  </div>
+</section>
     </main>
   );
 }
