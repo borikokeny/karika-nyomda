@@ -13,8 +13,12 @@ function Contact() {
     color: "",
     paper: "",
     notes: "",
+    deadline: "",
+    noDeadline: false,
+    file: null as File | null,
+    pickup: "",
   });
-
+  const [submitted, setSubmitted] = useState(false);
   return (
     <main>
       {/* Hero */}
@@ -35,7 +39,11 @@ function Contact() {
           </p>
         </div>
       </section>
-      <form onSubmit={(event) => event.preventDefault()}>
+      <form onSubmit={(event) => {
+        event.preventDefault();
+        console.log(formData);
+        setSubmitted(true);
+      }}>
         {/* Kapcsolattartó adatai */}
         <section className="mx-auto max-w-7xl border-t border-black/10 px-6 py-12">
           <div className="max-w-3xl">
@@ -76,6 +84,7 @@ function Contact() {
                     })
                   }
                   placeholder="email@pelda.hu"
+                  required
                   className="mt-2 w-full border border-black/15 px-4 py-3 text-sm outline-none transition-colors focus:border-black"
                 />
               </label>
@@ -328,11 +337,25 @@ function Contact() {
 
                 <input
                   type="date"
+                  value={formData.deadline}
+                  onChange={(event) =>
+                    setFormData({
+                      ...formData,
+                      deadline: event.target.value,
+                    })
+                  }
                   className="mt-2 w-full border border-black/15 bg-white px-4 py-3 text-sm outline-none transition-colors focus:border-black"
                 />
                 <label className="mt-3 flex items-center gap-2 text-sm text-black/70">
                   <input
                     type="checkbox"
+                    checked={formData.noDeadline}
+                    onChange={(event) =>
+                      setFormData({
+                        ...formData,
+                        noDeadline: event.target.checked,
+                      })
+                    }
                     className="h-4 w-4"
                   />
                   Nincs konkrét határidő
@@ -349,6 +372,12 @@ function Contact() {
                 </p>
                 <input
                   type="file"
+                  onChange={(event) =>
+                    setFormData({
+                      ...formData,
+                      file: event.target.files?.[0] ?? null,
+                    })
+                  }
                   className="mt-2 block w-full border border-black/15 bg-white px-4 py-3 text-sm file:mr-4 file:border-0 file:bg-black file:px-4 file:py-2 file:text-xs file:font-semibold file:text-white"
                 />
               </label>
@@ -375,8 +404,15 @@ function Contact() {
               <label className="cursor-pointer border border-black/15 p-5 transition-colors hover:border-black">
                 <input
                   type="radio"
+                  onChange={(event) =>
+                    setFormData({
+                      ...formData,
+                      pickup: event.target.value,
+                    })
+                  }
                   name="pickup"
                   value="szemelyes"
+                  checked={formData.pickup === "szemelyes"}
                   className="mr-3"
                 />
                 <span className="text-sm font-semibold">
@@ -387,8 +423,15 @@ function Contact() {
               <label className="cursor-pointer border border-black/15 p-5 transition-colors hover:border-black">
                 <input
                   type="radio"
+                  onChange={(event) =>
+                    setFormData({
+                      ...formData,
+                      pickup: event.target.value,
+                    })
+                  }
                   name="pickup"
                   value="szallitas"
+                  checked={formData.pickup === "szallitas"}
                   className="mr-3"
                 />
                 <span className="text-sm font-semibold">
@@ -399,8 +442,15 @@ function Contact() {
               <label className="cursor-pointer border border-black/15 p-5 transition-colors hover:border-black">
                 <input
                   type="radio"
+                  onChange={(event) =>
+                    setFormData({
+                      ...formData,
+                      pickup: event.target.value,
+                    })
+                  }
                   name="pickup"
                   value="egyeztetes"
+                  checked={formData.pickup === "egyeztetes"}
                   className="mr-3"
                 />
                 <span className="text-sm font-semibold">
